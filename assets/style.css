@@ -1,7 +1,9 @@
 h8 {
   font-size: 14px;
-  text-align: center;
+  /* text-align: center !important; */
   color: gray;
+  /* padding-left: 35%; */
+  /* text-align: right; */
 }
 
 p,
@@ -18,8 +20,7 @@ a:hover {
   text-decoration: none;
 }
 
-
-
-.col.usNews {
-    width: 10rem;
+.col {
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgb(199, 199, 199);
 }

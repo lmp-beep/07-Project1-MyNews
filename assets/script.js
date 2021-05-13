@@ -1,16 +1,22 @@
 const usNews = document.querySelectorAll(".usNews");
-// const usNewsPhoto = document.querySelectorAll(".us-news-photo");
+const worldNews = document.querySelectorAll(".worldNews");
+const businessNews = document.querySelectorAll(".businessNews");
+const sportsNews = document.querySelectorAll(".sportsNews");
+const techNews = document.querySelectorAll(".techNews");
+const entertainmentNews = document.querySelectorAll(".entertainmentNews");
+const healthNews = document.querySelectorAll(".healthNews");
+const travelNews = document.querySelectorAll(".travelNews");
 
 $(document).ready(function () {
   console.log("ready!");
   usNewsAPI();
-  //   worldNewsAPI();
-  //   businessNewsAPI();
-  //   sportsNewsAPI();
-  //   technologyNewsAPI();
-  //   entertainmentNewsAPI();
-  //   healthNewsAPI();
-  //   travelNewsAPI();
+  worldNewsAPI();
+  businessNewsAPI();
+  sportsNewsAPI();
+  technologyNewsAPI();
+  entertainmentNewsAPI();
+  healthNewsAPI();
+  travelNewsAPI();
 
   // newscasterNewsAPI();
 
@@ -73,8 +79,11 @@ $(document).ready(function () {
           //     window.open(data.results[i].url, "_blank");
           //   });
 
-          const usNewsPhoto = document.createElement("img");
+          const usNewsCategory = document.createElement("h8");
+          usNewsCategory.innerHTML = "US News";
+          usNews[i].append(usNewsCategory);
 
+          const usNewsPhoto = document.createElement("img");
           usNewsPhoto.setAttribute("src", data.results[i].multimedia[0].url);
           usNews[i].append(usNewsPhoto);
           usNewsPhoto.setAttribute("width", "100%");
@@ -86,289 +95,288 @@ $(document).ready(function () {
           const usNewsAbstract = document.createElement("p");
           usNewsAbstract.innerHTML = data.results[i].abstract;
           usNews[i].append(usNewsAbstract);
-
-          const usNewsCategory = document.createElement("h8");
-          usNewsCategory.innerHTML = "US News";
-          usNews[i].append(usNewsCategory);
         }
       });
   }
 
-  //   function worldNewsAPI() {
-  //     var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
-  //     var requestWorldNews =
-  //       "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=" +
-  //       nyTimesAPIKey;
+  function worldNewsAPI() {
+    var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
+    var requestWorldNews =
+      "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=" +
+      nyTimesAPIKey;
 
-  //     fetch(requestWorldNews)
-  //       .then(function (response) {
-  //         return response.json();
-  //       })
-  //       .then(function (data) {
-  //         console.log(data);
-  //         var worldNewsFlash = document.getElementById("world-news-flash");
-  //         worldNewsFlash.addEventListener("click", function () {
-  //           window.open(data.results[0].url, "_blank");
-  //         });
-  //         const worldPhoto = document.getElementById("world-news-flash-photo");
-  //         worldPhoto.setAttribute("src", data.results[0].multimedia[0].url);
-  //         worldNewsFlash.append(worldPhoto);
-  //         const worldHeadline = document.getElementById(
-  //           "world-news-flash-headline"
-  //         );
-  //         worldHeadline.innerHTML = data.results[0].title;
-  //         worldNewsFlash.append(worldHeadline);
-  //         const worldAbstract = document.getElementById(
-  //           "world-news-flash-abstract"
-  //         );
-  //         worldAbstract.innerHTML = data.results[0].abstract;
-  //         worldNewsFlash.append(worldAbstract);
-  //         const worldNewsCategory = document.getElementById(
-  //           "world-news-flash-category"
-  //         );
-  //         worldNewsCategory.innerHTML = "World News";
-  //         worldNewsFlash.append(worldNewsCategory);
-  //       });
-  //   }
+    fetch(requestWorldNews)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        for (i = 0; i < worldNews.length; i++) {
+          //   var usNewsFlash = document.getElementById("us-news-flash");
+          //   usNewsFlash.addEventListener("click", function () {
+          //     window.open(data.results[i].url, "_blank");
+          //   });
 
-  //   function businessNewsAPI() {
-  //     var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
-  //     var requestBusinessNews =
-  //       "https://api.nytimes.com/svc/topstories/v2/business.json?api-key=" +
-  //       nyTimesAPIKey;
+          const worldNewsCategory = document.createElement("h8");
+          worldNewsCategory.innerHTML = "World News";
+          worldNews[i].append(worldNewsCategory);
 
-  //     fetch(requestBusinessNews)
-  //       .then(function (response) {
-  //         return response.json();
-  //       })
-  //       .then(function (data) {
-  //         console.log(data);
-  //         var businessNewsFlash = document.getElementById("business-news-flash");
-  //         businessNewsFlash.addEventListener("click", function () {
-  //           window.open(data.results[0].url, "_blank");
-  //         });
-  //         const businessPhoto = document.getElementById(
-  //           "business-news-flash-photo"
-  //         );
-  //         businessPhoto.setAttribute("src", data.results[0].multimedia[0].url);
-  //         businessNewsFlash.append(businessPhoto);
-  //         const businessHeadline = document.getElementById(
-  //           "business-news-flash-headline"
-  //         );
-  //         businessHeadline.innerHTML = data.results[0].title;
-  //         businessNewsFlash.append(businessHeadline);
-  //         const businessAbstract = document.getElementById(
-  //           "business-news-flash-abstract"
-  //         );
-  //         businessAbstract.innerHTML = data.results[0].abstract;
-  //         businessNewsFlash.append(businessAbstract);
-  //         const businessNewsCategory = document.getElementById(
-  //           "business-news-flash-category"
-  //         );
-  //         businessNewsCategory.innerHTML = "Business News";
-  //         businessNewsFlash.append(businessNewsCategory);
-  //       });
-  //   }
+          const worldNewsPhoto = document.createElement("img");
+          worldNewsPhoto.setAttribute("src", data.results[i].multimedia[0].url);
+          worldNews[i].append(worldNewsPhoto);
+          worldNewsPhoto.setAttribute("width", "100%");
 
-  //   function sportsNewsAPI() {
-  //     var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
-  //     var requestSportsNews =
-  //       "https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=" +
-  //       nyTimesAPIKey;
+          const worldNewsHeadline = document.createElement("h5");
+          worldNewsHeadline.innerHTML = data.results[i].title;
+          worldNews[i].append(worldNewsHeadline);
 
-  //     fetch(requestSportsNews)
-  //       .then(function (response) {
-  //         return response.json();
-  //       })
-  //       .then(function (data) {
-  //         console.log(data);
-  //         var sportsNewsFlash = document.getElementById("sports-news-flash");
-  //         sportsNewsFlash.addEventListener("click", function () {
-  //           window.open(data.results[0].url, "_blank");
-  //         });
-  //         const sportsPhoto = document.getElementById("sports-news-flash-photo");
-  //         sportsPhoto.setAttribute("src", data.results[0].multimedia[0].url);
-  //         sportsNewsFlash.append(sportsPhoto);
-  //         const sportsHeadline = document.getElementById(
-  //           "sports-news-flash-headline"
-  //         );
-  //         sportsHeadline.innerHTML = data.results[0].title;
-  //         sportsNewsFlash.append(sportsHeadline);
-  //         const sportsAbstract = document.getElementById(
-  //           "sports-news-flash-abstract"
-  //         );
-  //         sportsAbstract.innerHTML = data.results[0].abstract;
-  //         sportsNewsFlash.append(sportsAbstract);
-  //         const sportsNewsCategory = document.getElementById(
-  //           "sports-news-flash-category"
-  //         );
-  //         sportsNewsCategory.innerHTML = "Sports News";
-  //         sportsNewsFlash.append(sportsNewsCategory);
-  //       });
-  //   }
+          const worldNewsAbstract = document.createElement("p");
+          worldNewsAbstract.innerHTML = data.results[i].abstract;
+          worldNews[i].append(worldNewsAbstract);
+        }
+      });
+  }
 
-  //   function technologyNewsAPI() {
-  //     var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
-  //     var requestTechnologyNews =
-  //       "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=" +
-  //       nyTimesAPIKey;
+  function businessNewsAPI() {
+    var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
+    var requestBusinessNews =
+      "https://api.nytimes.com/svc/topstories/v2/business.json?api-key=" +
+      nyTimesAPIKey;
 
-  //     fetch(requestTechnologyNews)
-  //       .then(function (response) {
-  //         return response.json();
-  //       })
-  //       .then(function (data) {
-  //         console.log(data);
-  //         var technologyNewsFlash = document.getElementById(
-  //           "technology-news-flash"
-  //         );
-  //         technologyNewsFlash.addEventListener("click", function () {
-  //           window.open(data.results[0].url, "_blank");
-  //         });
-  //         const technologyPhoto = document.getElementById(
-  //           "technology-news-flash-photo"
-  //         );
-  //         technologyPhoto.setAttribute("src", data.results[0].multimedia[0].url);
-  //         technologyNewsFlash.append(technologyPhoto);
-  //         const technologyHeadline = document.getElementById(
-  //           "technology-news-flash-headline"
-  //         );
-  //         technologyHeadline.innerHTML = data.results[0].title;
-  //         technologyNewsFlash.append(technologyHeadline);
-  //         const technologyAbstract = document.getElementById(
-  //           "technology-news-flash-abstract"
-  //         );
-  //         technologyAbstract.innerHTML = data.results[0].abstract;
-  //         technologyNewsFlash.append(technologyAbstract);
-  //         const technologyNewsCategory = document.getElementById(
-  //           "technology-news-flash-category"
-  //         );
-  //         technologyNewsCategory.innerHTML = "Technology News";
-  //         technologyNewsFlash.append(technologyNewsCategory);
-  //       });
-  //   }
+    fetch(requestBusinessNews)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        for (i = 0; i < businessNews.length; i++) {
+          //   var usNewsFlash = document.getElementById("us-news-flash");
+          //   usNewsFlash.addEventListener("click", function () {
+          //     window.open(data.results[i].url, "_blank");
+          //   });
 
-  //   function entertainmentNewsAPI() {
-  //     var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
-  //     var requestEntertainmentNews =
-  //       "https://api.nytimes.com/svc/topstories/v2/movies.json?api-key=" +
-  //       nyTimesAPIKey;
+          const businessNewsCategory = document.createElement("h8");
+          businessNewsCategory.innerHTML = "Business News";
+          businessNews[i].append(businessNewsCategory);
 
-  //     fetch(requestEntertainmentNews)
-  //       .then(function (response) {
-  //         return response.json();
-  //       })
-  //       .then(function (data) {
-  //         console.log(data);
-  //         var entertainmentNewsFlash = document.getElementById(
-  //           "entertainment-news-flash"
-  //         );
-  //         entertainmentNewsFlash.addEventListener("click", function () {
-  //           window.open(data.results[0].url, "_blank");
-  //         });
-  //         const entertainmentPhoto = document.getElementById(
-  //           "entertainment-news-flash-photo"
-  //         );
-  //         entertainmentPhoto.setAttribute(
-  //           "src",
-  //           data.results[0].multimedia[0].url
-  //         );
-  //         entertainmentNewsFlash.append(entertainmentPhoto);
-  //         const entertainmentHeadline = document.getElementById(
-  //           "entertainment-news-flash-headline"
-  //         );
-  //         entertainmentHeadline.innerHTML = data.results[0].title;
-  //         entertainmentNewsFlash.append(entertainmentHeadline);
-  //         const entertainmentAbstract = document.getElementById(
-  //           "entertainment-news-flash-abstract"
-  //         );
-  //         entertainmentAbstract.innerHTML = data.results[0].abstract;
-  //         entertainmentNewsFlash.append(entertainmentAbstract);
-  //         const entertainmentNewsCategory = document.getElementById(
-  //           "entertainment-news-flash-category"
-  //         );
-  //         entertainmentNewsCategory.innerHTML = "Movie News";
-  //         entertainmentNewsFlash.append(entertainmentNewsCategory);
-  //       });
-  //   }
+          const businessNewsPhoto = document.createElement("img");
+          businessNewsPhoto.setAttribute(
+            "src",
+            data.results[i].multimedia[0].url
+          );
+          businessNews[i].append(businessNewsPhoto);
+          businessNewsPhoto.setAttribute("width", "100%");
 
-  //   function healthNewsAPI() {
-  //     var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
-  //     var requestHealthNews =
-  //       "https://api.nytimes.com/svc/topstories/v2/health.json?api-key=" +
-  //       nyTimesAPIKey;
+          const businessNewsHeadline = document.createElement("h5");
+          businessNewsHeadline.innerHTML = data.results[i].title;
+          businessNews[i].append(businessNewsHeadline);
 
-  //     fetch(requestHealthNews)
-  //       .then(function (response) {
-  //         return response.json();
-  //       })
-  //       .then(function (data) {
-  //         console.log(data);
-  //         var healthNewsFlash = document.getElementById("health-news-flash");
-  //         healthNewsFlash.addEventListener("click", function () {
-  //           window.open(data.results[0].url, "_blank");
-  //         });
-  //         const healthPhoto = document.getElementById("health-news-flash-photo");
-  //         healthPhoto.setAttribute("src", data.results[0].multimedia[0].url);
-  //         healthNewsFlash.append(healthPhoto);
-  //         const healthHeadline = document.getElementById(
-  //           "health-news-flash-headline"
-  //         );
-  //         healthHeadline.innerHTML = data.results[0].title;
-  //         healthNewsFlash.append(healthHeadline);
-  //         const healthAbstract = document.getElementById(
-  //           "health-news-flash-abstract"
-  //         );
-  //         healthAbstract.innerHTML = data.results[0].abstract;
-  //         healthNewsFlash.append(healthAbstract);
-  //         const healthNewsCategory = document.getElementById(
-  //           "health-news-flash-category"
-  //         );
-  //         healthNewsCategory.innerHTML = "Health News";
-  //         healthNewsFlash.append(healthNewsCategory);
-  //       });
-  //   }
+          const businessNewsAbstract = document.createElement("p");
+          businessNewsAbstract.innerHTML = data.results[i].abstract;
+          businessNews[i].append(businessNewsAbstract);
+        }
+      });
+  }
 
-  //   function travelNewsAPI() {
-  //     var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
-  //     var requestTravelNews =
-  //       "https://api.nytimes.com/svc/topstories/v2/travel.json?api-key=" +
-  //       nyTimesAPIKey;
+  function sportsNewsAPI() {
+    var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
+    var requestSportsNews =
+      "https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=" +
+      nyTimesAPIKey;
 
-  //     fetch(requestTravelNews)
-  //       .then(function (response) {
-  //         return response.json();
-  //       })
-  //       .then(function (data) {
-  //         console.log(data);
-  //         var travelNewsFlash = document.getElementById("travel-news-flash");
-  //         travelNewsFlash.addEventListener("click", function () {
-  //           window.open(data.results[0].url, "_blank");
-  //         });
-  //         const travelPhoto = document.getElementById("travel-news-flash-photo");
-  //         travelPhoto.setAttribute("src", data.results[0].multimedia[0].url);
-  //         travelNewsFlash.append(travelPhoto);
-  //         const travelHeadline = document.getElementById(
-  //           "travel-news-flash-headline"
-  //         );
-  //         travelHeadline.innerHTML = data.results[0].title;
-  //         travelNewsFlash.append(travelHeadline);
-  //         const travelAbstract = document.getElementById(
-  //           "travel-news-flash-abstract"
-  //         );
-  //         travelAbstract.innerHTML = data.results[0].abstract;
-  //         travelNewsFlash.append(travelAbstract);
-  //         const travelNewsCategory = document.getElementById(
-  //           "travel-news-flash-category"
-  //         );
-  //         travelNewsCategory.innerHTML = "Travel News";
-  //         travelNewsFlash.append(travelNewsCategory);
-  //       });
-  //   }
+    fetch(requestSportsNews)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        for (i = 0; i < sportsNews.length; i++) {
+          //   var usNewsFlash = document.getElementById("us-news-flash");
+          //   usNewsFlash.addEventListener("click", function () {
+          //     window.open(data.results[i].url, "_blank");
+          //   });
 
-  // submitBtn.addEventListener("click", function() {
-  //     event.preventDefault();
-  //     nyTimesTopStoriesAPI();
-  //     console.log("ive been clicked");
-  // })
+          const sportsNewsCategory = document.createElement("h8");
+          sportsNewsCategory.innerHTML = "Sports News";
+          sportsNews[i].append(sportsNewsCategory);
+
+          const sportsNewsPhoto = document.createElement("img");
+          sportsNewsPhoto.setAttribute(
+            "src",
+            data.results[i].multimedia[0].url
+          );
+          sportsNews[i].append(sportsNewsPhoto);
+          sportsNewsPhoto.setAttribute("width", "100%");
+
+          const sportsNewsHeadline = document.createElement("h5");
+          sportsNewsHeadline.innerHTML = data.results[i].title;
+          sportsNews[i].append(sportsNewsHeadline);
+
+          const sportsNewsAbstract = document.createElement("p");
+          sportsNewsAbstract.innerHTML = data.results[i].abstract;
+          sportsNews[i].append(sportsNewsAbstract);
+        }
+      });
+  }
+
+  function technologyNewsAPI() {
+    var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
+    var requestTechnologyNews =
+      "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=" +
+      nyTimesAPIKey;
+
+    fetch(requestTechnologyNews)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        for (i = 0; i < techNews.length; i++) {
+          //   var usNewsFlash = document.getElementById("us-news-flash");
+          //   usNewsFlash.addEventListener("click", function () {
+          //     window.open(data.results[i].url, "_blank");
+          //   });
+
+          const techNewsCategory = document.createElement("h8");
+          techNewsCategory.innerHTML = "Technology News";
+          techNews[i].append(techNewsCategory);
+
+          const techNewsPhoto = document.createElement("img");
+          techNewsPhoto.setAttribute("src", data.results[i].multimedia[0].url);
+          techNews[i].append(techNewsPhoto);
+          techNewsPhoto.setAttribute("width", "100%");
+
+          const techNewsHeadline = document.createElement("h5");
+          techNewsHeadline.innerHTML = data.results[i].title;
+          techNews[i].append(techNewsHeadline);
+
+          const techNewsAbstract = document.createElement("p");
+          techNewsAbstract.innerHTML = data.results[i].abstract;
+          techNews[i].append(techNewsAbstract);
+        }
+      });
+  }
+
+  function entertainmentNewsAPI() {
+    var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
+    var requestEntertainmentNews =
+      "https://api.nytimes.com/svc/topstories/v2/movies.json?api-key=" +
+      nyTimesAPIKey;
+
+    fetch(requestEntertainmentNews)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        for (i = 0; i < entertainmentNews.length; i++) {
+          //   var usNewsFlash = document.getElementById("us-news-flash");
+          //   usNewsFlash.addEventListener("click", function () {
+          //     window.open(data.results[i].url, "_blank");
+          //   });
+
+          const entertainmentNewsCategory = document.createElement("h8");
+          entertainmentNewsCategory.innerHTML = "Entertainment News";
+          entertainmentNews[i].append(entertainmentNewsCategory);
+
+          const entertainmentNewsPhoto = document.createElement("img");
+          entertainmentNewsPhoto.setAttribute(
+            "src",
+            data.results[i].multimedia[0].url
+          );
+          entertainmentNews[i].append(entertainmentNewsPhoto);
+          entertainmentNewsPhoto.setAttribute("width", "100%");
+
+          const entertainmentNewsHeadline = document.createElement("h5");
+          entertainmentNewsHeadline.innerHTML = data.results[i].title;
+          entertainmentNews[i].append(entertainmentNewsHeadline);
+
+          const entertainmentNewsAbstract = document.createElement("p");
+          entertainmentNewsAbstract.innerHTML = data.results[i].abstract;
+          entertainmentNews[i].append(entertainmentNewsAbstract);
+        }
+      });
+  }
+
+  function healthNewsAPI() {
+    var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
+    var requestHealthNews =
+      "https://api.nytimes.com/svc/topstories/v2/health.json?api-key=" +
+      nyTimesAPIKey;
+
+    fetch(requestHealthNews)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        for (i = 0; i < healthNews.length; i++) {
+          //   var usNewsFlash = document.getElementById("us-news-flash");
+          //   usNewsFlash.addEventListener("click", function () {
+          //     window.open(data.results[i].url, "_blank");
+          //   });
+
+          const healthNewsCategory = document.createElement("h8");
+          healthNewsCategory.innerHTML = "Health News";
+          healthNews[i].append(healthNewsCategory);
+
+          const healthNewsPhoto = document.createElement("img");
+          healthNewsPhoto.setAttribute(
+            "src",
+            data.results[i].multimedia[0].url
+          );
+          healthNews[i].append(healthNewsPhoto);
+          healthNewsPhoto.setAttribute("width", "100%");
+
+          const healthNewsHeadline = document.createElement("h5");
+          healthNewsHeadline.innerHTML = data.results[i].title;
+          healthNews[i].append(healthNewsHeadline);
+
+          const healthNewsAbstract = document.createElement("p");
+          healthNewsAbstract.innerHTML = data.results[i].abstract;
+          healthNews[i].append(healthNewsAbstract);
+        }
+      });
+  }
+
+  function travelNewsAPI() {
+    var nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
+    var requestTravelNews =
+      "https://api.nytimes.com/svc/topstories/v2/travel.json?api-key=" +
+      nyTimesAPIKey;
+
+    fetch(requestTravelNews)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        for (i = 0; i < travelNews.length; i++) {
+          //   var usNewsFlash = document.getElementById("us-news-flash");
+          //   usNewsFlash.addEventListener("click", function () {
+          //     window.open(data.results[i].url, "_blank");
+          //   });
+
+          const travelNewsCategory = document.createElement("h8");
+          travelNewsCategory.innerHTML = "Travel News";
+          travelNews[i].append(travelNewsCategory);
+
+          const travelNewsPhoto = document.createElement("img");
+          travelNewsPhoto.setAttribute(
+            "src",
+            data.results[i].multimedia[0].url
+          );
+          travelNews[i].append(travelNewsPhoto);
+          travelNewsPhoto.setAttribute("width", "100%");
+
+          const travelNewsHeadline = document.createElement("h5");
+          travelNewsHeadline.innerHTML = data.results[i].title;
+          travelNews[i].append(travelNewsHeadline);
+
+          const travelNewsAbstract = document.createElement("p");
+          travelNewsAbstract.innerHTML = data.results[i].abstract;
+          travelNews[i].append(travelNewsAbstract);
+        }
+      });
+  }
 });
