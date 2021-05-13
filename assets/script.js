@@ -1,4 +1,5 @@
 const usNews = document.querySelectorAll(".usNews");
+const usNewsFeatured = document.querySelectorAll(".usNewsFeatured");
 const worldNews = document.querySelectorAll(".worldNews");
 const businessNews = document.querySelectorAll(".businessNews");
 const sportsNews = document.querySelectorAll(".sportsNews");
@@ -10,13 +11,13 @@ const travelNews = document.querySelectorAll(".travelNews");
 $(document).ready(function () {
   console.log("ready!");
   usNewsAPI();
-  worldNewsAPI();
-  businessNewsAPI();
-  sportsNewsAPI();
-  technologyNewsAPI();
-  entertainmentNewsAPI();
-  healthNewsAPI();
-  travelNewsAPI();
+    worldNewsAPI();
+    businessNewsAPI();
+    sportsNewsAPI();
+    technologyNewsAPI();
+    entertainmentNewsAPI();
+    healthNewsAPI();
+    travelNewsAPI();
 
   // newscasterNewsAPI();
 
@@ -73,9 +74,46 @@ $(document).ready(function () {
       })
       .then(function (data) {
         console.log(data);
+
+        const usNewsFeaturedPhoto = document.getElementById(
+          "usNewsFeaturedPhoto"
+        );
+        usNewsFeaturedPhoto.setAttribute(
+          "src",
+          data.results[0].multimedia[0].url
+        );
+        usNewsFeatured[0].append(usNewsFeaturedPhoto);
+        // usNewsFeaturedPhoto.setAttribute("width", "50%");
+        // usNewsFeaturedPhoto.style.margin = '0 auto';
+
+        const usNewsFeaturedHeadline = document.getElementById(
+          "usNewsFeaturedHeadline"
+        );
+        usNewsFeaturedHeadline.innerHTML = data.results[0].title;
+        usNewsFeatured[0].append(usNewsFeaturedHeadline);
+        // usNewsFeaturedHeadline.style.margin = '0 auto';
+
+        const usNewsFeaturedAbstract = document.getElementById(
+          "usNewsFeaturedAbstract"
+        );
+        usNewsFeaturedAbstract.innerHTML = data.results[0].abstract;
+        usNewsFeatured[0].append(usNewsFeaturedAbstract);
+        // usNewsFeaturedAbstract.style.margin = '0 auto';
+        // usNewsFeaturedAbstract.setAttribute("width", "10%");
+
+        const usNewsFeaturedCategory = document.getElementById(
+          "usNewsFeaturedCategory"
+        );
+        usNewsFeaturedCategory.innerHTML = "US News";
+        usNewsFeatured[0].append(usNewsFeaturedCategory);
+        // usNewsFeaturedCategory.style.margin = '0 auto';
+
+
+
+
         for (i = 0; i < usNews.length; i++) {
-          //   var usNewsFlash = document.getElementById("us-news-flash");
-          //   usNewsFlash.addEventListener("click", function () {
+          //   const usNewsLink = document.querySelectorAll(".usNews");
+          //   usNewsLink.addEventListener("click", function () {
           //     window.open(data.results[i].url, "_blank");
           //   });
 
@@ -87,14 +125,23 @@ $(document).ready(function () {
           usNewsPhoto.setAttribute("src", data.results[i].multimedia[0].url);
           usNews[i].append(usNewsPhoto);
           usNewsPhoto.setAttribute("width", "100%");
+          //   usNewsPhoto.addEventListener("click", function () {
+          //     window.open(data.results[i].url, "_blank");
+          //   });
 
           const usNewsHeadline = document.createElement("h5");
           usNewsHeadline.innerHTML = data.results[i].title;
           usNews[i].append(usNewsHeadline);
+          //   usNewsHeadline.addEventListener("click", function () {
+          //     window.open(data.results[i].url, "_blank");
+          //   });
 
           const usNewsAbstract = document.createElement("p");
           usNewsAbstract.innerHTML = data.results[i].abstract;
           usNews[i].append(usNewsAbstract);
+          //   usNewsAbstract.addEventListener("click", function () {
+          //     window.open(data.results[i].url, "_blank");
+          //   });
         }
       });
   }
@@ -125,6 +172,9 @@ $(document).ready(function () {
           worldNewsPhoto.setAttribute("src", data.results[i].multimedia[0].url);
           worldNews[i].append(worldNewsPhoto);
           worldNewsPhoto.setAttribute("width", "100%");
+          worldNewsPhoto.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const worldNewsHeadline = document.createElement("h5");
           worldNewsHeadline.innerHTML = data.results[i].title;
