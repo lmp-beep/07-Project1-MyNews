@@ -11,13 +11,13 @@ const travelNews = document.querySelectorAll(".travelNews");
 $(document).ready(function () {
   console.log("ready!");
   usNewsAPI();
-    worldNewsAPI();
-    businessNewsAPI();
-    sportsNewsAPI();
-    technologyNewsAPI();
-    entertainmentNewsAPI();
-    healthNewsAPI();
-    travelNewsAPI();
+  worldNewsAPI();
+  businessNewsAPI();
+  sportsNewsAPI();
+  technologyNewsAPI();
+  entertainmentNewsAPI();
+  healthNewsAPI();
+  travelNewsAPI();
 
   // newscasterNewsAPI();
 
@@ -107,9 +107,6 @@ $(document).ready(function () {
         usNewsFeaturedCategory.innerHTML = "US News";
         usNewsFeatured[0].append(usNewsFeaturedCategory);
         // usNewsFeaturedCategory.style.margin = '0 auto';
-
-
-
 
         for (i = 0; i < usNews.length; i++) {
           //   const usNewsLink = document.querySelectorAll(".usNews");
