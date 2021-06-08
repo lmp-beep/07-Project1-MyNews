@@ -11,13 +11,13 @@ const travelNews = document.querySelectorAll(".travelNews");
 $(document).ready(function () {
   console.log("ready!");
   usNewsAPI();
-  worldNewsAPI();
-  businessNewsAPI();
-  sportsNewsAPI();
-  technologyNewsAPI();
-  entertainmentNewsAPI();
-  healthNewsAPI();
-  travelNewsAPI();
+    worldNewsAPI();
+    // businessNewsAPI();
+    sportsNewsAPI();
+    technologyNewsAPI();
+    entertainmentNewsAPI();
+    healthNewsAPI();
+    travelNewsAPI();
 
   // newscasterNewsAPI();
 
@@ -62,6 +62,9 @@ $(document).ready(function () {
   //     })
   // };
 
+
+
+
   function usNewsAPI() {
     const nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
     const requestUSNews =
@@ -75,38 +78,59 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        const usNewsFeaturedPhoto = document.getElementById(
-          "usNewsFeaturedPhoto"
-        );
-        usNewsFeaturedPhoto.setAttribute(
-          "src",
-          data.results[0].multimedia[0].url
-        );
-        usNewsFeatured[0].append(usNewsFeaturedPhoto);
-        // usNewsFeaturedPhoto.setAttribute("width", "50%");
-        // usNewsFeaturedPhoto.style.margin = '0 auto';
+        
+        // const usNewsFeaturedCategory = document.createElement("h8");
+        // usNewsFeaturedCategory.innerHTML = "US News";
+        // usNewsFeatured[0].append(usNewsFeaturedCategory);
 
-        const usNewsFeaturedHeadline = document.getElementById(
-          "usNewsFeaturedHeadline"
-        );
-        usNewsFeaturedHeadline.innerHTML = data.results[0].title;
-        usNewsFeatured[0].append(usNewsFeaturedHeadline);
-        // usNewsFeaturedHeadline.style.margin = '0 auto';
+        // const usNewsFeaturedPhoto = document.createElement("img");
+        // usNewsFeaturedPhoto.setAttribute(
+        //   "src",
+        //   data.results[0].multimedia[0].url
+        // );
+        // usNewsFeatured[0].append(usNewsFeaturedPhoto);
+        // usNewsFeaturedPhoto.setAttribute("width", "100%");
 
-        const usNewsFeaturedAbstract = document.getElementById(
-          "usNewsFeaturedAbstract"
-        );
-        usNewsFeaturedAbstract.innerHTML = data.results[0].abstract;
-        usNewsFeatured[0].append(usNewsFeaturedAbstract);
-        // usNewsFeaturedAbstract.style.margin = '0 auto';
-        // usNewsFeaturedAbstract.setAttribute("width", "10%");
+        // const usNewsFeaturedHeadline = document.createElement("h5");
+        // usNewsFeaturedHeadline.innerHTML = data.results[0].title;
+        // usNewsFeatured[0].append(usNewsFeaturedHeadline);
 
-        const usNewsFeaturedCategory = document.getElementById(
-          "usNewsFeaturedCategory"
-        );
-        usNewsFeaturedCategory.innerHTML = "US News";
-        usNewsFeatured[0].append(usNewsFeaturedCategory);
-        // usNewsFeaturedCategory.style.margin = '0 auto';
+        // const usNewsFeaturedAbstract = document.createElement("p");
+        // usNewsFeaturedAbstract.innerHTML = data.results[0].abstract;
+        // usNewsFeatured[0].append(usNewsFeaturedAbstract);
+
+        // const usNewsFeaturedPhoto = document.getElementById(
+        //   "usNewsFeaturedPhoto"
+        // );
+        // usNewsFeaturedPhoto.setAttribute(
+        //   "src",
+        //   data.results[0].multimedia[0].url
+        // );
+        // usNewsFeatured[0].append(usNewsFeaturedPhoto);
+        // // usNewsFeaturedPhoto.setAttribute("width", "50%");
+        // // usNewsFeaturedPhoto.style.margin = '0 auto';
+
+        // const usNewsFeaturedHeadline = document.getElementById(
+        //   "usNewsFeaturedHeadline"
+        // );
+        // usNewsFeaturedHeadline.innerHTML = data.results[0].title;
+        // usNewsFeatured[0].append(usNewsFeaturedHeadline);
+        // // usNewsFeaturedHeadline.style.margin = '0 auto';
+
+        // const usNewsFeaturedAbstract = document.getElementById(
+        //   "usNewsFeaturedAbstract"
+        // );
+        // usNewsFeaturedAbstract.innerHTML = data.results[0].abstract;
+        // usNewsFeatured[0].append(usNewsFeaturedAbstract);
+        // // usNewsFeaturedAbstract.style.margin = '0 auto';
+        // // usNewsFeaturedAbstract.setAttribute("width", "10%");
+
+        // const usNewsFeaturedCategory = document.getElementById(
+        //   "usNewsFeaturedCategory"
+        // );
+        // usNewsFeaturedCategory.innerHTML = "US News";
+        // usNewsFeatured[0].append(usNewsFeaturedCategory);
+        // // usNewsFeaturedCategory.style.margin = '0 auto';
 
         for (i = 0; i < usNews.length; i++) {
           //   const usNewsLink = document.querySelectorAll(".usNews");
