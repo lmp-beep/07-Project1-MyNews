@@ -1,5 +1,6 @@
 const usNews1 = document.querySelectorAll(".usNews1");
 const usNews2 = document.querySelectorAll(".usNews2");
+const unitedStatesNews = document.querySelectorAll(".unitedStatesNews");
 const worldNews1 = document.querySelectorAll(".worldNews1");
 const worldNews2 = document.querySelectorAll(".worldNews2");
 const sportsNews1 = document.querySelectorAll(".sportsNews1");
@@ -9,6 +10,7 @@ $(document).ready(function () {
   console.log("ready!");
   usNewsAPI1();
   usNewsAPI2();
+  unitedStatesNewsAPI();
   worldNewsAPI1();
   worldNewsAPI2();
   sportsNewsAPI1();
@@ -28,11 +30,9 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        for (i = 0; i < usNews1.length; i++) {
-          const usNewsPhoto = document.getElementById("usNewsPhoto");
-          usNewsPhoto.setAttribute("src", data.results[i].multimedia[0].url);
-          usNews1[i].append(usNewsPhoto);
-        }
+        const usNewsPhoto = document.getElementById("usNewsPhoto");
+        usNewsPhoto.setAttribute("src", data.results[0].multimedia[0].url);
+        usNews1[0].append(usNewsPhoto);
       });
   }
 
@@ -49,14 +49,44 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        for (i = 0; i < usNews2.length; i++) {
-          const usNewsHeadline = document.getElementById("usNewsHeadline");
-          usNewsHeadline.innerHTML = data.results[i].title;
-          usNews2[i].append(usNewsHeadline);
+        const usNewsHeadline = document.getElementById("usNewsHeadline");
+        usNewsHeadline.innerHTML = data.results[0].title;
+        usNews2[0].append(usNewsHeadline);
 
-          const usNewsAbstract = document.getElementById("usNewsAbstract");
-          usNewsAbstract.innerHTML = data.results[i].abstract;
-          usNews2[i].append(usNewsAbstract);
+        const usNewsAbstract = document.getElementById("usNewsAbstract");
+        usNewsAbstract.innerHTML = data.results[0].abstract;
+        usNews2[0].append(usNewsAbstract);
+      });
+  }
+
+  function unitedStatesNewsAPI() {
+    const nyTimesAPIKey = "VqGXtQf3PtyfZrtXwxjc54VEnZhc9QnR";
+    const requestUSNews =
+      "https://api.nytimes.com/svc/topstories/v2/us.json?api-key=" +
+      nyTimesAPIKey;
+    fetch(requestUSNews)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+
+        for (i = 1; i < unitedStatesNews.length; i++) {
+          const unitedStatesNewsPhoto = document.createElement("img");
+          unitedStatesNewsPhoto.setAttribute(
+            "src",
+            data.results[i].multimedia[0].url
+          );
+          unitedStatesNews[i].append(unitedStatesNewsPhoto);
+          unitedStatesNewsPhoto.setAttribute("width", "100%");
+
+          const unitedStatesNewsHeadline = document.createElement("h7");
+          unitedStatesNewsHeadline.innerHTML = data.results[i].title;
+          unitedStatesNews[i].append(unitedStatesNewsHeadline);
+
+          const unitedStatesNewsAbstract = document.createElement("h8");
+          unitedStatesNewsAbstract.innerHTML = data.results[i].abstract;
+          unitedStatesNews[i].append(unitedStatesNewsAbstract);
         }
       });
   }
