@@ -74,6 +74,7 @@ h2 {
 
 .img-fluid {
   padding: 0px 50px 0px 50px;
+  max-height: 400px;
 }
 
 .owl-1 .owl-nav {
