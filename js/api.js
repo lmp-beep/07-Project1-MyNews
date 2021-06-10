@@ -56,6 +56,10 @@ $(document).ready(function () {
         const usNewsPhoto = document.getElementById("usNewsPhoto");
         usNewsPhoto.setAttribute("src", data.results[0].multimedia[0].url);
         usNews1[0].append(usNewsPhoto);
+
+        usNewsPhoto.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
       });
   }
 
@@ -75,10 +79,16 @@ $(document).ready(function () {
         const usNewsHeadline = document.getElementById("usNewsHeadline");
         usNewsHeadline.innerHTML = data.results[0].title;
         usNews2[0].append(usNewsHeadline);
+        usNewsHeadline.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
 
         const usNewsAbstract = document.getElementById("usNewsAbstract");
         usNewsAbstract.innerHTML = data.results[0].abstract;
         usNews2[0].append(usNewsAbstract);
+        usNewsAbstract.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
       });
   }
 
@@ -102,14 +112,23 @@ $(document).ready(function () {
           );
           unitedStatesNews[i].append(unitedStatesNewsPhoto);
           unitedStatesNewsPhoto.setAttribute("width", "100%");
+          unitedStatesNewsPhoto.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const unitedStatesNewsHeadline = document.createElement("h7");
           unitedStatesNewsHeadline.innerHTML = data.results[i].title;
           unitedStatesNews[i].append(unitedStatesNewsHeadline);
+          unitedStatesNewsHeadline.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const unitedStatesNewsAbstract = document.createElement("h8");
           unitedStatesNewsAbstract.innerHTML = data.results[i].abstract;
           unitedStatesNews[i].append(unitedStatesNewsAbstract);
+          unitedStatesNewsAbstract.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
         }
       });
   }
@@ -128,11 +147,15 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        for (i = 0; i < worldNews1.length; i++) {
-          const worldNewsPhoto = document.getElementById("worldNewsPhoto");
-          worldNewsPhoto.setAttribute("src", data.results[i].multimedia[0].url);
-          worldNews1[i].append(worldNewsPhoto);
-        }
+        // for (i = 0; i < worldNews1.length; i++) {
+        const worldNewsPhoto = document.getElementById("worldNewsPhoto");
+        worldNewsPhoto.setAttribute("src", data.results[0].multimedia[0].url);
+        worldNews1[0].append(worldNewsPhoto);
+
+        worldNewsPhoto.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
+        // }
       });
   }
 
@@ -149,17 +172,21 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        for (i = 0; i < worldNews2.length; i++) {
-          const worldNewsHeadline =
-            document.getElementById("worldNewsHeadline");
-          worldNewsHeadline.innerHTML = data.results[i].title;
-          worldNews2[i].append(worldNewsHeadline);
+        // for (i = 0; i < worldNews2.length; i++) {
+        const worldNewsHeadline = document.getElementById("worldNewsHeadline");
+        worldNewsHeadline.innerHTML = data.results[0].title;
+        worldNews2[0].append(worldNewsHeadline);
+        worldNewsHeadline.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
 
-          const worldNewsAbstract =
-            document.getElementById("worldNewsAbstract");
-          worldNewsAbstract.innerHTML = data.results[i].abstract;
-          worldNews2[i].append(worldNewsAbstract);
-        }
+        const worldNewsAbstract = document.getElementById("worldNewsAbstract");
+        worldNewsAbstract.innerHTML = data.results[0].abstract;
+        worldNews2[0].append(worldNewsAbstract);
+        worldNews3Abstract.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
+        // }
       });
   }
 
@@ -183,14 +210,23 @@ $(document).ready(function () {
           );
           worldNews3[i].append(worldNews3Photo);
           worldNews3Photo.setAttribute("width", "100%");
+          worldNews3Photo.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const worldNews3Headline = document.createElement("h7");
           worldNews3Headline.innerHTML = data.results[i].title;
           worldNews3[i].append(worldNews3Headline);
+          worldNews3Headline.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const worldNews3Abstract = document.createElement("h8");
           worldNews3Abstract.innerHTML = data.results[i].abstract;
           worldNews3[i].append(worldNews3Abstract);
+          worldNews3Abstract.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
         }
       });
   }
@@ -209,14 +245,15 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        for (i = 0; i < sportsNews1.length; i++) {
-          const sportsNewsPhoto = document.getElementById("sportsNewsPhoto");
-          sportsNewsPhoto.setAttribute(
-            "src",
-            data.results[i].multimedia[0].url
-          );
-          sportsNews1[i].append(sportsNewsPhoto);
-        }
+        // for (i = 0; i < sportsNews1.length; i++) {
+        const sportsNewsPhoto = document.getElementById("sportsNewsPhoto");
+        sportsNewsPhoto.setAttribute("src", data.results[0].multimedia[0].url);
+        sportsNews1[0].append(sportsNewsPhoto);
+
+        sportsNewsPhoto.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
+        // }
       });
   }
 
@@ -233,17 +270,23 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        for (i = 0; i < sportsNews2.length; i++) {
-          const sportsNewsHeadline =
-            document.getElementById("sportsNewsHeadline");
-          sportsNewsHeadline.innerHTML = data.results[i].title;
-          sportsNews2[i].append(sportsNewsHeadline);
+        // for (i = 0; i < sportsNews2.length; i++) {
+        const sportsNewsHeadline =
+          document.getElementById("sportsNewsHeadline");
+        sportsNewsHeadline.innerHTML = data.results[0].title;
+        sportsNews2[0].append(sportsNewsHeadline);
+        sportsNewsHeadline.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
 
-          const sportsNewsAbstract =
-            document.getElementById("sportsNewsAbstract");
-          sportsNewsAbstract.innerHTML = data.results[i].abstract;
-          sportsNews2[i].append(sportsNewsAbstract);
-        }
+        const sportsNewsAbstract =
+          document.getElementById("sportsNewsAbstract");
+        sportsNewsAbstract.innerHTML = data.results[0].abstract;
+        sportsNews2[0].append(sportsNewsAbstract);
+        sportsNewsAbstract.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
+        // }
       });
   }
 
@@ -267,14 +310,23 @@ $(document).ready(function () {
           );
           sportsNews3[i].append(sportsNews3Photo);
           sportsNews3Photo.setAttribute("width", "100%");
+          sportsNews3Photo.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const sportsNews3Headline = document.createElement("h7");
           sportsNews3Headline.innerHTML = data.results[i].title;
           sportsNews3[i].append(sportsNews3Headline);
+          sportsNews3Headline.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const sportsNews3Abstract = document.createElement("h8");
           sportsNews3Abstract.innerHTML = data.results[i].abstract;
           sportsNews3[i].append(sportsNews3Abstract);
+          sportsNews3Abstract.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
         }
       });
   }
@@ -293,14 +345,15 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        for (i = 0; i < travelNews1.length; i++) {
-          const travelNewsPhoto = document.getElementById("travelNewsPhoto");
-          travelNewsPhoto.setAttribute(
-            "src",
-            data.results[i].multimedia[0].url
-          );
-          travelNews1[i].append(travelNewsPhoto);
-        }
+        // for (i = 0; i < travelNews1.length; i++) {
+        const travelNewsPhoto = document.getElementById("travelNewsPhoto");
+        travelNewsPhoto.setAttribute("src", data.results[0].multimedia[0].url);
+        travelNews1[0].append(travelNewsPhoto);
+
+        travelNewsPhoto.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
+        // }
       });
   }
 
@@ -317,17 +370,23 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        for (i = 0; i < travelNews2.length; i++) {
-          const travelNewsHeadline =
-            document.getElementById("travelNewsHeadline");
-          travelNewsHeadline.innerHTML = data.results[i].title;
-          travelNews2[i].append(travelNewsHeadline);
+        // for (i = 0; i < travelNews2.length; i++) {
+        const travelNewsHeadline =
+          document.getElementById("travelNewsHeadline");
+        travelNewsHeadline.innerHTML = data.results[0].title;
+        travelNews2[0].append(travelNewsHeadline);
+        travelNewsHeadline.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
 
-          const travelNewsAbstract =
-            document.getElementById("travelNewsAbstract");
-          travelNewsAbstract.innerHTML = data.results[i].abstract;
-          travelNews2[i].append(travelNewsAbstract);
-        }
+        const travelNewsAbstract =
+          document.getElementById("travelNewsAbstract");
+        travelNewsAbstract.innerHTML = data.results[0].abstract;
+        travelNews2[0].append(travelNewsAbstract);
+        travelNewsAbstract.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
+        // }
       });
   }
 
@@ -351,14 +410,23 @@ $(document).ready(function () {
           );
           travelNews3[i].append(travelNews3Photo);
           travelNews3Photo.setAttribute("width", "100%");
+          travelNews3Photo.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const travelNews3Headline = document.createElement("h7");
           travelNews3Headline.innerHTML = data.results[i].title;
           travelNews3[i].append(travelNews3Headline);
+          travelNews3Headline.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const travelNews3Abstract = document.createElement("h8");
           travelNews3Abstract.innerHTML = data.results[i].abstract;
           travelNews3[i].append(travelNews3Abstract);
+          travelNews3Abstract.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
         }
       });
   }
@@ -377,14 +445,14 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        for (i = 0; i < healthNews1.length; i++) {
-          const healthNewsPhoto = document.getElementById("healthNewsPhoto");
-          healthNewsPhoto.setAttribute(
-            "src",
-            data.results[i].multimedia[0].url
-          );
-          healthNews1[i].append(healthNewsPhoto);
-        }
+        // for (i = 0; i < healthNews1.length; i++) {
+        const healthNewsPhoto = document.getElementById("healthNewsPhoto");
+        healthNewsPhoto.setAttribute("src", data.results[0].multimedia[0].url);
+        healthNews1[0].append(healthNewsPhoto);
+        healthNewsPhoto.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
+        // }
       });
   }
 
@@ -401,17 +469,23 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data);
 
-        for (i = 0; i < healthNews2.length; i++) {
-          const healthNewsHeadline =
-            document.getElementById("healthNewsHeadline");
-          healthNewsHeadline.innerHTML = data.results[i].title;
-          healthNews2[i].append(healthNewsHeadline);
+        // for (i = 0; i < healthNews2.length; i++) {
+        const healthNewsHeadline =
+          document.getElementById("healthNewsHeadline");
+        healthNewsHeadline.innerHTML = data.results[0].title;
+        healthNews2[0].append(healthNewsHeadline);
+        healthNewsHeadline.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
 
-          const healthNewsAbstract =
-            document.getElementById("healthNewsAbstract");
-          healthNewsAbstract.innerHTML = data.results[i].abstract;
-          healthNews2[i].append(healthNewsAbstract);
-        }
+        const healthNewsAbstract =
+          document.getElementById("healthNewsAbstract");
+        healthNewsAbstract.innerHTML = data.results[0].abstract;
+        healthNews2[0].append(healthNewsAbstract);
+        healthNewsAbstract.addEventListener("click", function () {
+          window.open(data.results[0].url, "_blank");
+        });
+        // }
       });
   }
 
@@ -435,14 +509,23 @@ $(document).ready(function () {
           );
           healthNews3[i].append(healthNews3Photo);
           healthNews3Photo.setAttribute("width", "100%");
+          healthNews3Photo.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const healthNews3Headline = document.createElement("h7");
           healthNews3Headline.innerHTML = data.results[i].title;
           healthNews3[i].append(healthNews3Headline);
+          healthNews3Headline.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
 
           const healthNews3Abstract = document.createElement("h8");
           healthNews3Abstract.innerHTML = data.results[i].abstract;
           healthNews3[i].append(healthNews3Abstract);
+          healthNews3Abstract.addEventListener("click", function () {
+            window.open(data.results[i].url, "_blank");
+          });
         }
       });
   }
